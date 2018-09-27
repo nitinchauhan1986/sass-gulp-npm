@@ -1,0 +1,87 @@
+@import '_variable.scss';
+@import '_mixin.scss';
+
+.base{
+    border-radius: 2px;
+    width:100px;
+    height: 100px;
+
+}
+
+.main{
+    @extend .base;
+    background: $black1;
+    width:100%;
+    height:$height;
+    float:left;
+    
+
+}
+.main::after{
+    @include pseudo;
+ }
+
+ .sixteen-nine {
+    @include aspect-ratio(16,9);
+   }
+   
+input,  
+textarea {  
+    @include input-placeholder {
+        color: $grey;
+    }
+}
+
+.site-header {
+    padding: 2rem;
+    font-size: 1.8rem;
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+}
+
+.box{
+    width:500px;
+    background:$red;
+}
+
+%buttondefault {
+    border-radius: 10px;
+    display: block;
+    font-size: 1.5em;
+    font-family: sans-serif;
+    padding: 1em 2em;
+    margin: 1em auto;
+    width: 30%;
+    text-align: center;
+  }
+
+  .buttons a{
+    @extend %buttondefault;
+  }
+.confirm{
+    background:$confirm;
+    color:dynamic-text-color($confirm);
+    @include truncate(5px);
+    
+}
+
+.warning{
+    background:$warning;
+    color:dynamic-text-color($warning);
+    
+}
+.alert{
+    background:$alert;
+    color:dynamic-text-color($alert);
+}
+.samplefont{
+    @include font-source-sans(25px,$alert,bold,25px);
+    background: red;
+    display: block;
+    @include transform(translateY(-100%));
+    &   :after{
+        @include pseudo(block,relative,'564');
+    }
+}
